@@ -19,7 +19,7 @@ class Food
 			x = (score * millis) % 30;
 			y = ((score-2) * (millis+1)) % 30;
 			pair<int, int> p = {x, y};
-			while(find(snake_arr.begin(), snake_arr.end(), p) != snake_arr.end())
+			while(true)
 			{
 				auto epoch = chrono::high_resolution_clock::from_time_t(0);
 				auto now = chrono::high_resolution_clock::now();
@@ -27,6 +27,11 @@ class Food
 				x = (score * millis) % 30;
 				y = ((score-2) * (millis+1)) % 30;
 				pair<int, int> p = {x, y};
+				bool tobreak = true;
+				for(auto i : snake_arr)
+					if(i == p)
+						tobreak = false;
+				if (tobreak) break;
 			}
 		}
 		
