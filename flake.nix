@@ -9,6 +9,7 @@
 	in {
 		packages."${system}".default = pkgs.stdenv.mkDerivation {
 			name = "snake";
+			src = ./.;
 
 			nativeBuildInputs = with pkgs; [gcc gnumake];
 			buildInputs = with pkgs; [ncurses];
